@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-md-6">
+        <h5 *ngIf="!todolist.length">
+            Nothing to show. Add new Todo entry to get started!
+        </h5>
+        <div class="card my-3" *ngFor="let todomodel of todolist; let ind = index">
+            <h6 class="card-header text-bg-light" *ngIf="todomodel.isImportant || todomodel.isDone"><span class="badge bg-success mx-1" *ngIf="todomodel.isDone">Completed</span><span class="badge bg-danger mx-1" *ngIf="todomodel.isImportant">Important</span></h6>
+            <div class="card-body text-bg-light">
+                <h5 class="card-title">{{ todomodel.name }}</h5>
+                <hr>
+                <p class="card-text">{{ todomodel.description }}</p>
+                <button class="btn btn-dark" type="button" (click)="onDetails(ind)">More Details</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 my-3">
+        <app-todo-details></app-todo-details>
+    </div>
+</div>
+
+<!-- "{'text-bg-suceess': todomodel.isDone,'text-bg-light': !todomodel.isDone}" -->

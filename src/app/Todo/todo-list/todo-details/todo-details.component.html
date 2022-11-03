@@ -1,0 +1,23 @@
+<div class="card" *ngIf="index != -1">
+    <h3 class="card-header p-3">Task Title: {{ todoModel.name }}</h3>
+    <div class="card-body p-3">
+        <h4 class=>Description : {{ todoModel.description }}</h4>
+        <br>
+        <h5>Details:</h5>
+        <p>{{ todoModel.details }}</p>
+    </div>
+    <div class="card-footer" [ngClass]="todoModel.isImportant?'text-bg-primary':'text-bg-light'">
+        {{todoModel.isImportant?"Priority: High (Marked as Important Task)":"Priority: Normal (Marked as Not Important Task)"}}
+    </div>
+    <div class="card-footer" [ngClass]="todoModel.isDone?'text-bg-success':'text-bg-light'">
+        {{todoModel.isDone?"Task Status: Completed":"Task Status: Incomplete"}}
+    </div>
+    <div class="card-footer">
+        <button class="btn mx-2 my-2" type="button" (click)="toggleImp()" [ngClass]="todoModel.isImportant?'btn-primary':'btn-warning'">{{ (todoModel.isImportant)?"Mark as Uninmportant":"Mark as Important" }}</button>
+        <button class="btn mx-2 my-2" type="button" (click)="toggleDone()" [ngClass]="todoModel.isDone?'btn-primary':'btn-success'">{{ (todoModel.isDone)?"Mark as Incomplete":"Mark as Completed" }}</button>
+        <button class="btn btn-primary mx-2 my-2" type="button" (click)="onEdit()">Edit Task</button>
+    </div> 
+</div>
+
+<!-- "{'text-bg-danger': todoModel.isImportant,'text-bg-light':!todoModel.isImportant}" -->
+<!-- "{'text-bg-success': todoModel.isDone,'text-bg-light':!todoModel.isDone}" -->

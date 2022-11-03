@@ -1,0 +1,25 @@
+<h2> What is Working Mode? </h2>
+<p> This app support two types of Data storage solutions, Cloud Mode and Local Mode </p>
+
+<h4> Cloud Mode </h4>
+<p> Apps stores respective Data to the Cloud Server (Firebase Realtime Database). 
+    Cloud mode is tied to the account, So when user will Sign-Up from 'Authorisation' Tab, 
+    app will autometically start using Cloud services for Data storing solution. This will be 
+    switched to offline mode whenerver Users Logsout or Login token will expires.
+</p>
+<h6> Pros and Cons</h6>
+<p> 
+    As cloud Mode is using 3rd Party firebase storage for storing data. it can be accessed from anywhere.
+    On the other hand Data is stored somewhere in the FireBase storage, so that might be Down side for 
+    privacy concious personalities.
+</p>
+<br>
+<h4> Local Mode </h4>
+<p> In Local storage mode App will use Local device storage for data storage and browsers built-in functions for 
+    storing and retrieving data.
+</p>
+<h6> Pros and Cons</h6>
+<p> 
+    No 3rd party services is used in Local storage mode. So all data will stay in users device only.
+    But in the other hand, Taking backup might be necessary as data will be lost forever if something bad happens to the device
+</p>

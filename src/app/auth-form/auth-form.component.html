@@ -1,0 +1,15 @@
+<div class="container col-md-7">
+    <form (ngSubmit)="onSubmit(authForm)" #authForm="ngForm">
+        <div class="form-group mb-3">
+            <label for="email" class="form-label"><strong>Email</strong></label>
+            <input type="email" class="form-control" name="email" id="email" ngModel email required>
+        </div>
+        <div class="form-group mb-3">
+            <label for="password" class="form-label"><strong>Password</strong></label>
+            <input type="password" class="form-control" name="password" id="password" ngModel required>
+        </div>
+        <button type="submit" class="btn btn-primary">{{isLoginMode?"Login":"Sign-Up"}}</button>
+        |
+        <button type="button" class="btn btn-primary" (click)="switchMode()">{{!isLoginMode?"Switch to Login Mode":"Switch to Sign-Up Mode"}}</button>
+    </form>
+</div>

@@ -1,0 +1,27 @@
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark user-select-none">
+    <div class="container-fluid">
+      <a class="navbar-brand" [routerLink]="['home']">TODO App</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" [routerLink]='["todo"]' routerLinkActive="active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" [appDropDown]="authElem" #ToggleRef>
+              Authorisation
+            </a>
+            <ul class="dropdown-menu" #authElem>
+              <li><button class="dropdown-item" [routerLink]="['auth']" [disabled]="isLoggedin">Login/Sign-Up</button></li>
+              <li><button class="dropdown-item" (click)="logout()" [disabled]="!isLoggedin">Logout</button></li>
+            </ul>
+          </li>
+          <a class="nav-link" [routerLink]="['modeshelp']" routerLinkActive="modeshelp">
+            Working Mode: {{ isLoggedin?' Cloud ':' Local ' }}
+          </a>
+        </ul>
+      </div>
+    </div>
+  </nav>

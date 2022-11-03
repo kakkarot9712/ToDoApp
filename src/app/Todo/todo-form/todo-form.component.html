@@ -1,0 +1,22 @@
+<h4>{{ editMode?"Edit Todo Wizard":"New Todo Wizard" }}</h4>
+<form (ngSubmit)="onSubmit(TodoForm)" #TodoForm="ngForm">
+    <div class="form-group my-3">
+        <label for="name" class="form-label"><strong>Task Title</strong></label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" required placeholder="enter Task Name here">
+    </div>
+    <div class="form-group my-3">
+        <label for="description" class="form-label"><strong>Task Description</strong></label>
+        <input type="text" class="form-control" id="description" name="description" [(ngModel)]="description" required placeholder="enter short description here">
+    </div>
+    <div class="form-group my-3">
+        <label for="details" class="form-label"><strong>Task Details</strong></label>
+        <textarea class="form-control" id="details" name="details" [(ngModel)]="details" required placeholder="enter task details here"></textarea>
+    </div>
+    <div class="form-check my-3">
+        <input type="checkbox" class="form-check-input" id="important" name="important" [(ngModel)]="isImp">
+        <label for="important" class="form-check-label"><strong>Mark as important</strong></label>
+    </div>
+    <button type="submit" class="btn btn-success mx-2" [disabled]="!TodoForm.valid">{{ editMode?"Save Changes":"Submit" }}</button>
+    <button type="button" class="btn btn-danger mx-2" *ngIf="editMode" (click)="onDelete()" >Delete Task</button>
+    <button type="button" class="btn btn-primary mx-2" *ngIf="editMode" (click)="onCancel()" >Cancel Editing</button>
+</form>
