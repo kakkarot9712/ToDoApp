@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthFormComponent } from './auth-form/auth-form.component';
 import { ModeshelpComponent } from './modeshelp/modeshelp.component';
+import { AuthGuard } from './shared/auth.guard';
 import { TodoComponent } from './Todo/todo.component';
 
 const routes: Routes = [
@@ -12,7 +13,7 @@ const routes: Routes = [
     path: 'todo', component: TodoComponent
   },
   {
-    path: 'auth', component: AuthFormComponent
+    path: 'auth', component: AuthFormComponent, canActivate:[AuthGuard]
   },
   {
     path: 'modeshelp', component: ModeshelpComponent

@@ -1,7 +1,5 @@
 import { Injectable, OnInit } from "@angular/core";
 import { Subject } from "rxjs";
-import { AuthService } from "../shared/auth.service";
-import { FirebaseStorageService } from "../shared/firebase-storage.service";
 import { TodoModel } from "./todo.model";
 
 @Injectable({providedIn:'root'})

@@ -1,6 +1,8 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable, OnInit } from "@angular/core";
-import { take, exhaustMap } from "rxjs/operators";
+import { take, exhaustMap, map } from "rxjs/operators";
+import * as crypto from 'crypto-js'
+
 import { TodoModel } from "../Todo/todo.model";
 import { AuthService } from "./auth.service";
 
@@ -8,22 +10,15 @@ import { AuthService } from "./auth.service";
 export class FirebaseStorageService implements OnInit{
     constructor(private http: HttpClient, private auth: AuthService){
     }
+
     ngOnInit(): void {   
     }
 
     putData(todolist: TodoModel[]){
-        return this.auth.loginDetails.pipe(take(1), exhaustMap(response => {
-            return this.http.put('https://todoapp-ee61f-default-rtdb.firebaseio.com/todo.json', todolist, {
-                params: new HttpParams().set('auth', response.token)
-            })
-        }))  
+        return this.http.put(`https://todoapp-ee61f-default-rtdb.firebaseio.com/${this.auth.username}.json`, todolist)
     }
 
     fetchData(){
-        return this.auth.loginDetails.pipe(take(1), exhaustMap((response)=>{
-            return this.http.get('https://todoapp-ee61f-default-rtdb.firebaseio.com/todo.json', {
-                params: new HttpParams().set('auth', response.token)
-            })
-        }))
+        return this.http.get(`https://todoapp-ee61f-default-rtdb.firebaseio.com/${this.auth.username}.json`)
     }
 }

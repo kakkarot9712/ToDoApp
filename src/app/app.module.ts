@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component'
@@ -14,6 +14,7 @@ import { TodoFormComponent } from './Todo/todo-form/todo-form.component';
 import { DropDownDirective } from './shared/dropdown.directive';
 import { AuthFormComponent } from './auth-form/auth-form.component';
 import { ModeshelpComponent } from './modeshelp/modeshelp.component';
+import { AuthInterceptor } from './shared/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,11 @@ import { ModeshelpComponent } from './modeshelp/modeshelp.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
