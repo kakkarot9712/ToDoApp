@@ -1,23 +1,25 @@
 import { Injectable, OnInit } from "@angular/core";
-import { Subject, Subscription } from "rxjs";
+import { Subject } from "rxjs";
 import { AuthService } from "../shared/auth.service";
 import { FirebaseStorageService } from "../shared/firebase-storage.service";
 import { TodoModel } from "./todo.model";
 
 @Injectable({providedIn:'root'})
 export class TodoService implements OnInit{
-    constructor(private database: FirebaseStorageService ){}
-    ngOnInit(): void {
-    }   
     private todolist: TodoModel[] = []
     todoListChanged = new Subject<TodoModel[]>()
     todoListDetails = new Subject<number>()
     todoListEdit = new Subject<number>()
     TodoModelDeleted = new Subject<number>()
 
+    constructor(){}
+
+    ngOnInit(): void {
+    }
+    
     autoLogin(){
-        let parsedData = JSON.parse( localStorage.getItem("ToDoData") || "" )
-        if (parsedData != ""){
+        let parsedData = JSON.parse(localStorage.getItem("ToDoData"))
+        if (parsedData){
             this.todolist = parsedData
         }
     }
@@ -25,11 +27,15 @@ export class TodoService implements OnInit{
     private passChanges(){
         this.todoListChanged.next(this.todolist.slice())
         localStorage.setItem("ToDoData", JSON.stringify(this.todolist))
-        this.database.putData(this.todolist).subscribe()
     }
     
     getTodoList(){
         return this.todolist.slice()
+    }
+
+    setTodoList(list: TodoModel[]){
+        this.todolist = list
+        this.passChanges()
     }
 
     getTodoModel(index: number){

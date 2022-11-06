@@ -10,15 +10,20 @@ export class FirebaseStorageService implements OnInit{
     }
     ngOnInit(): void {   
     }
-    
-    addToCloud(todo: TodoModel){
-        return this.http.post('https://todoapp-ee61f-default-rtdb.firebaseio.com/todo.json', todo)
-    }
+
     putData(todolist: TodoModel[]){
         return this.auth.loginDetails.pipe(take(1), exhaustMap(response => {
             return this.http.put('https://todoapp-ee61f-default-rtdb.firebaseio.com/todo.json', todolist, {
                 params: new HttpParams().set('auth', response.token)
             })
         }))  
+    }
+
+    fetchData(){
+        return this.auth.loginDetails.pipe(take(1), exhaustMap((response)=>{
+            return this.http.get('https://todoapp-ee61f-default-rtdb.firebaseio.com/todo.json', {
+                params: new HttpParams().set('auth', response.token)
+            })
+        }))
     }
 }

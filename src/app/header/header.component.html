@@ -21,6 +21,15 @@
           <a class="nav-link" [routerLink]="['modeshelp']" routerLinkActive="modeshelp">
             Working Mode: {{ isLoggedin?' Cloud ':' Local ' }}
           </a>
+          <li class="nav-item">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" *ngIf="isLoggedin" [appDropDown]="syncElem" #ToggleRef>
+              Sync
+            </a>
+            <ul class="dropdown-menu" #syncElem>
+              <li><button class="dropdown-item" (click)="pushToCloud()">Push To Cloud</button></li>
+              <li><button class="dropdown-item" (click)="fetchFromCloud()">Fetch From Cloud</button></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>

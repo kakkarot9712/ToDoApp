@@ -1,5 +1,8 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
+import { FirebaseStorageService } from '../shared/firebase-storage.service';
+import { TodoModel } from '../Todo/todo.model';
+import { TodoService } from '../Todo/todo.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +12,7 @@ import { AuthService } from '../shared/auth.service';
 export class HeaderComponent implements OnInit {
 
   isLoggedin = false
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private database: FirebaseStorageService, private todoservice: TodoService) { }
 
   ngOnInit(): void {
     this.auth.loginDetails.subscribe(response => {
@@ -22,5 +25,13 @@ export class HeaderComponent implements OnInit {
   }
   logout(){
     this.auth.logout()
+  }
+
+  pushToCloud(){
+    this.database.putData(this.todoservice.getTodoList()).subscribe()
+  }
+
+  fetchFromCloud(){
+    this.database.fetchData().subscribe((response: TodoModel[]) =>this.todoservice.setTodoList(response))
   }
 }

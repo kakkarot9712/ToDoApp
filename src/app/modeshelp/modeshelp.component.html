@@ -2,10 +2,10 @@
 <p> This app support two types of Data storage solutions, Cloud Mode and Local Mode </p>
 
 <h4> Cloud Mode </h4>
-<p> Apps stores respective Data to the Cloud Server (Firebase Realtime Database). 
-    Cloud mode is tied to the account, So when user will Sign-Up from 'Authorisation' Tab, 
-    app will autometically start using Cloud services for Data storing solution. This will be 
-    switched to offline mode whenerver Users Logsout or Login token will expires.
+<p> App can store respective Data to the Cloud Server (Firebase Realtime Database). 
+    Cloud mode is tied to the account, So when user will Login from 'Authorisation' Tab, 
+    app will provide options for Synchronisation (Sync Menu in Header) to cloud. Sync Menu will dissapear from Header and Mode will 
+    switch to offline mode whenerver Users Logsout or Login token will expires.
 </p>
 <h6> Pros and Cons</h6>
 <p> 
@@ -22,4 +22,11 @@
 <p> 
     No 3rd party services is used in Local storage mode. So all data will stay in users device only.
     But in the other hand, Taking backup might be necessary as data will be lost forever if something bad happens to the device
+</p>
+<br>
+<hr>
+<h5>Note</h5>
+<p>
+    This app will work in Local mode all the time, What cloud mode does is that it enables possibility to store data into Cloud and fetch at your will.
+    As of now <strong>Login will not synchronise Data automatically</strong>, you have to fetch or push data manually from cloud using Sync menu from header.
 </p>

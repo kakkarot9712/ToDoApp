@@ -65,8 +65,6 @@ export class AuthService {
             this.logOutTimer = null
         }
         localStorage.removeItem('loginDet')
-        console.log("Logging out")
-        console.log(this.logOutTimer)
         this.router.navigate(['auth'])
     }
 
@@ -74,7 +72,6 @@ export class AuthService {
         console.log(expSecs)
         this.logOutTimer = setTimeout(()=>{
             this.loginDetails.next(null)
-            console.log("removing user")
             localStorage.removeItem('loginDet')
         }, expSecs)
     }
