@@ -16,7 +16,7 @@ User can add/edit/remove To-Do Tasks using this website and this comes with few 
 * In above app I am using firebase realtime database for storing data and firebase's own REST API for user authentication.
 This is only for demo purpose and **This app does not _ _encrypt data while storing inside cloud_ _** So this will be only used for demo purposes.
 * This app works in Local Mode all the time and Switching to cloud mode will not disable local mode. for more info on how it works see
-[help section of website](https://todoapp-ee61f.web.app/modeshelp). So in Local mode, data will be stored only inside user's device and not it cloud database.
+[help section of website](https://todoapp-ee61f.web.app/modeshelp). So in Local mode, data will be stored only inside user's device and not in cloud database.
 * Authentication mode will not verify email address, that's why it is requested to use any dummy email for testing pupose. The validation will happen but that will be simple validation of html. So anything which bypassess standard email validation will work as an email for sign-up.
 
 ## Demo
@@ -46,7 +46,6 @@ Deployed using [Firebase](https://firebase.google.com/)
 ## Getting Started
 
 ### Prerequisites
-
 1) [Angular CLI v14.2.1 and UP](https://angular.io/)
 2) [Node.js v16.17.0 and UP](https://nodejs.org/en/) (LTS Version Recommanded)
 
