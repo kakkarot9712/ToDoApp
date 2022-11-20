@@ -1,0 +1,6 @@
+.alert-box {
+    position: fixed;
+    width: 100vw;
+    top: 60px;
+    z-index: 1060;
+}

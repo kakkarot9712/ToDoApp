@@ -31,10 +31,9 @@ export class AuthService {
             email: email,
             password: password,
             returnSecureToken: true
-        }).pipe(tap({
-            error: error => {
-                this.handleError(error)
-            }
+        }).pipe(
+            catchError(err => {
+            return this.handleError(err)
         }))
     }
 

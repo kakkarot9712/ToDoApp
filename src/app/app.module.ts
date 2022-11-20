@@ -15,6 +15,8 @@ import { DropDownDirective } from './shared/dropdown.directive';
 import { AuthFormComponent } from './auth-form/auth-form.component';
 import { ModeshelpComponent } from './modeshelp/modeshelp.component';
 import { AuthInterceptor } from './shared/auth.interceptor';
+import { FooterComponent } from './footer/footer.component';
+import { AlertComponent } from './shared/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { AuthInterceptor } from './shared/auth.interceptor';
     DropDownDirective,
     TodoFormComponent,
     AuthFormComponent,
-    ModeshelpComponent
+    ModeshelpComponent,
+    FooterComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

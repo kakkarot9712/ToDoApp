@@ -1,27 +1,71 @@
-# ToDoApp
+# To-Do App
 
+This website is simple To-Do App, but with few extra features.
+<br>
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
 
-## Development server
+## Description
+User can add/edit/remove To-Do Tasks using this website and this comes with few fearures which is
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* User can mark certain task as 'Important' or 'Completed'.
+* This app stores data inside local storage by default so after reload data will be retrived from local storage.
+* This app also comes with cloud mode support, where user can create account and store data into firebase database.
 
-## Code scaffolding
+## Notice
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* In above app I am using firebase realtime database for storing data and firebase's own REST API for user authentication.
+This is only for demo purpose and **This app does not _ _encrypt data while storing inside cloud_ _** So this will be only used for demo purposes.
+* This app works in Local Mode all the time and Switching to cloud mode will not disable local mode. for more info on how it works see
+[help section of website](https://todoapp-ee61f.web.app/modeshelp). So in Local mode, data will be stored only inside user's device and not it cloud database.
+* Authentication mode will not verify email address, that's why it is requested to use any dummy email for testing pupose. The validation will happen but that will be simple validation of html. So anything which bypassess standard email validation will work as an email for sign-up.
 
-## Build
+## Demo
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Here is the [Demo of website](https://todoapp-ee61f.web.app/modeshelp) 
+<br>
+Deployed using [Firebase](https://firebase.google.com/)
 
-## Running unit tests
+## Built With
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* <img src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white" />
+* <img src="https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white" />  
+* <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=whitw" />
+* <img src="https://img.shields.io/badge/HTML5%20-%23e34f26.svg?&style=for-the-badge&logo=html5&logoColor=white" />
+* <img src="https://img.shields.io/badge/CSS3-1572B6?&style=for-the-badge&logo=css3&logoColor=white" />
 
-## Running end-to-end tests
+## Screenshots
+<details>
+  <summary>Click to see screenshots</summary>
+  <br>
+  <img src='/src/assets/todohome.png' />
+  <img src='/src/assets/auth.png' />
+  <img src='/src/assets/modeshelp.png' />
+  <img src='/src/assets/taskadded.png' />
+</details>
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Getting Started
 
-## Further help
+### Prerequisites
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1) [Angular CLI v14.2.1 and UP](https://angular.io/)
+2) [Node.js v16.17.0 and UP](https://nodejs.org/en/) (LTS Version Recommanded)
+
+### Installing
+
+If anyone wants to test this project, user can do so by following below instruction.
+
+* Download source code and extract anywhere into the PC.
+* Open Terminal where project is extracted and then run following command 
+```
+npm install 
+```
+* After npm installs all dependency, user can run below command to see project in action.
+```
+ng serve
+```
+
+### Note
+
+* By following above instruction, everything will work except Cloud mode (obviously). 
+* If any user want to try cloud mode, user will need to sign-up for firebase, setup new realtime database and authentication.
+* User then need to put project's webapi key inside environment.ts (for dev-server) and inside environment.prod.ts (for production).

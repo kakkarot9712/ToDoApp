@@ -9,6 +9,10 @@ export class TodoService implements OnInit{
     todoListDetails = new Subject<number>()
     todoListEdit = new Subject<number>()
     TodoModelDeleted = new Subject<number>()
+    showAlert = new Subject<{
+        alertType: string,
+        alertmsg: string
+    }>()
 
     constructor(){}
 
