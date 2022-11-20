@@ -21,7 +21,7 @@ This is only for demo purpose and **This app does not _ _encrypt data while stor
 
 ## Demo
 
-Here is the [Demo of website](https://todoapp-ee61f.web.app/modeshelp) 
+Here is the [Demo of website](https://todoapp-ee61f.web.app/) 
 <br>
 Deployed using [Firebase](https://firebase.google.com/)
 
